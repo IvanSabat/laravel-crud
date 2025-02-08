@@ -24,9 +24,9 @@ class AuthController extends BaseController
             return $this->sendError('Validation Error.', $validator->errors());
         }
 
-        $input = $request->all();
-        $input['password'] = Hash::make($input['password']);
-        $user = User::query()->create($input);
+        $payload = $request->all();
+        $payload['password'] = Hash::make($payload['password']);
+        $user = User::query()->create($payload);
         $success['token'] = $user->createToken('register')->plainTextToken;
         $success['name']  = $user->name;
         $success['email'] = $user->email;
