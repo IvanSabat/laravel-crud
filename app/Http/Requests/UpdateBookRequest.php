@@ -24,7 +24,10 @@ class UpdateBookRequest extends FormRequest
     {
         return [
             'name' => ['sometimes', 'string', 'min:1', 'max:255'],
-            'description' => ['sometimes', 'string', 'min:1', 'max:255']
+            'description' => ['sometimes', 'string', 'min:1', 'max:255'],
+            'author' => ['sometimes', 'string', 'min:1', 'max:255'],
+            'genre' => ['sometimes', 'string', 'min:1', 'max:255'],
+            'year_of_publication' => ['sometimes', 'integer', 'min:1400', 'max:'.date('Y')],
         ];
     }
 }
